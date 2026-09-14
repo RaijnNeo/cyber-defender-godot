@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://d0padwa5g505l"]
+
+[ext_resource type="Script" uid="uid://dyqx3fqcbsfey" path="res://Floor_1_Scenes/obstacle_3.gd" id="1_102rf"]
+[ext_resource type="Texture2D" uid="uid://csqva0vxk7c0p" path="res://Sprites/obstacles/port_ethernet/obstacle_port_ethernet.png" id="1_dgj8o"]
+[ext_resource type="Texture2D" uid="uid://br4ij7ovrby7c" path="res://Sprites/obstacles/port_ethernet/obstacle_port_ethernet_1.png" id="2_102rf"]
+[ext_resource type="Texture2D" uid="uid://4fwkcljbrect" path="res://Sprites/obstacles/port_ethernet/obstacle_port_ethernet_2.png" id="3_t4o7w"]
+[ext_resource type="Texture2D" uid="uid://c587gm642gmb8" path="res://Sprites/obstacles/port_ethernet/obstacle_port_ethernet_3.png" id="4_ir6lm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4thyq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dgj8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_102rf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t4o7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ir6lm")
+}],
+"loop": true,
+"name": &"run3",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q82kf"]
+size = Vector2(32, 20)
+
+[node name="Obstacle" type="StaticBody2D" unique_id=1523664119]
+script = ExtResource("1_102rf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1088499377]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_4thyq")
+animation = &"run3"
+autoplay = "run3"
+frame_progress = 0.6337276
+centered = false
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1851713684]
+visible = false
+position = Vector2(16, 11)
+shape = SubResource("RectangleShape2D_q82kf")

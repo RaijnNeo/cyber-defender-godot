@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://r58bjya4pin2"]
+
+[ext_resource type="Texture2D" uid="uid://5x1nsmg400pr" path="res://Sprites/obstacles/obstacle_router.png" id="1_wtr8b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvyub"]
+size = Vector2(96, 24)
+
+[node name="obstacle_rou" type="StaticBody2D" unique_id=230284942]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1244438068]
+texture = ExtResource("1_wtr8b")
+centered = false
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=928591696]
+visible = false
+position = Vector2(48, 4)
+shape = SubResource("RectangleShape2D_cvyub")

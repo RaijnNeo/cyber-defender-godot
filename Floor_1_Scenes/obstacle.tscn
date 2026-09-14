@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d08gpty46lqvs"]
+
+[ext_resource type="Texture2D" uid="uid://b53vqiwfo33h2" path="res://Sprites/obstacles/obstacle_server.png" id="1_sl1jc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aubd6"]
+size = Vector2(32, 90)
+
+[node name="Obstacle" type="StaticBody2D" unique_id=1111242118]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=112870737]
+texture = ExtResource("1_sl1jc")
+centered = false
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=494718569]
+visible = false
+position = Vector2(16, 37)
+shape = SubResource("RectangleShape2D_aubd6")

@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://6rndjd1nekvu"]
+
+[ext_resource type="Texture2D" uid="uid://46qoklukh2oj" path="res://Sprites/obstacles/capacitor/obstacle_capacitor.png" id="2_4fqjj"]
+[ext_resource type="Texture2D" uid="uid://bjyky1d8fn86w" path="res://Sprites/obstacles/capacitor/obstacle_capacitor_1.png" id="3_gc2jy"]
+[ext_resource type="Texture2D" uid="uid://ctpox6brd116d" path="res://Sprites/obstacles/capacitor/obstacle_capacitor_2.png" id="4_gyqf5"]
+[ext_resource type="Texture2D" uid="uid://7nole5vfyxa3" path="res://Sprites/obstacles/capacitor/obstacle_capacitor_3.png" id="5_j2rrq"]
+
+[sub_resource type="GDScript" id="GDScript_ysfho"]
+script/source = "extends StaticBody2D
+
+func _ready():
+	$AnimatedSprite2D.play(\"run2\")
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_20w80"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4fqjj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gc2jy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gyqf5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j2rrq")
+}],
+"loop": true,
+"name": &"run2",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysfho"]
+size = Vector2(12, 31)
+
+[node name="Obstacle" type="StaticBody2D" unique_id=1111242118]
+script = SubResource("GDScript_ysfho")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=435477862]
+position = Vector2(-2, 14)
+sprite_frames = SubResource("SpriteFrames_20w80")
+animation = &"run2"
+autoplay = "run2"
+centered = false
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1378635962]
+visible = false
+position = Vector2(6, 16.5)
+shape = SubResource("RectangleShape2D_ysfho")

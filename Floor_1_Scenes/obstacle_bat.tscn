@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://7t2x86l66kks"]
+
+[ext_resource type="Texture2D" uid="uid://0mu7mqa3pkr3" path="res://Sprites/obstacles/obstacle_battery.png" id="1_e388t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okhqa"]
+size = Vector2(48, 56)
+
+[node name="Obstacle_bat" type="StaticBody2D" unique_id=1907754661]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1145378439]
+texture = ExtResource("1_e388t")
+centered = false
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2094191645]
+visible = false
+position = Vector2(24, 20)
+shape = SubResource("RectangleShape2D_okhqa")

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cc4nrk6x5a04d"]
+
+[ext_resource type="Script" uid="uid://b6fxwsv7m1eun" path="res://intro_scene.gd" id="1_fqpck"]
+[ext_resource type="VideoStream" uid="uid://bsx06r6o10q83" path="res://Sprites/Intro/intro.ogv" id="2_x3ncd"]
+[ext_resource type="FontFile" uid="uid://blo02h3xiw0qd" path="res://Sprites/PressStart2P.ttf" id="3_2glrg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2glrg"]
+
+[node name="IntroScene" type="CanvasLayer" unique_id=1057922899]
+script = ExtResource("1_fqpck")
+
+[node name="BG" type="ColorRect" parent="." unique_id=188621628]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VideoPlayer" type="VideoStreamPlayer" parent="." unique_id=1388931317]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 50.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_x3ncd")
+volume_db = 13.649998
+expand = true
+
+[node name="SkipLabel" type="Label" parent="." unique_id=974264269]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -445.0
+offset_top = -32.0
+offset_right = -13.0
+offset_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0.63, 0.63, 0.63, 0.72156864)
+theme_override_fonts/font = ExtResource("3_2glrg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_2glrg")
+text = "Tap / Press any key to skip"

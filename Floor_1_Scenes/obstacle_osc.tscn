@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://co3i1e4mwmvv5"]
+
+[ext_resource type="Texture2D" uid="uid://cy2cyiu5i7ju4" path="res://Sprites/obstacles/obstacle_oscillator.png" id="1_rfvos"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tpgc"]
+size = Vector2(32, 40)
+
+[node name="obstacle_osc" type="StaticBody2D" unique_id=979964825]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=461601863]
+texture = ExtResource("1_rfvos")
+centered = false
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=665277297]
+visible = false
+position = Vector2(16, 12)
+shape = SubResource("RectangleShape2D_6tpgc")

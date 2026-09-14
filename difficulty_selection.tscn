@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://wkh67cm6ynxl"]
+
+[ext_resource type="Script" uid="uid://jax2wide6mnf" path="res://difficulty_selection.gd" id="1_7yjbh"]
+[ext_resource type="Texture2D" uid="uid://b26mm5jlfhx1n" path="res://Sprites/Background.jpg" id="2_ovc01"]
+[ext_resource type="FontFile" uid="uid://blo02h3xiw0qd" path="res://Sprites/PressStart2P.ttf" id="3_7xrg1"]
+[ext_resource type="Texture2D" uid="uid://ci3binjkqub10" path="res://Sprites/Buttons/btn_beginner.png" id="4_rarx7"]
+[ext_resource type="Texture2D" uid="uid://lblkxmjjhopy" path="res://Sprites/Buttons/btn_beginner_pressed.png" id="5_ovc01"]
+[ext_resource type="Texture2D" uid="uid://bijlmdp1khhxp" path="res://Sprites/Buttons/btn_intermediate.png" id="5_tpv8j"]
+[ext_resource type="Texture2D" uid="uid://duu5dcev5sdh" path="res://Sprites/Buttons/btn_advanced.png" id="6_teheg"]
+[ext_resource type="Texture2D" uid="uid://dapyxblvectxv" path="res://Sprites/Buttons/btn_back.png" id="7_c7xio"]
+[ext_resource type="Texture2D" uid="uid://bflpy6gjqwf2q" path="res://Sprites/Buttons/btn_intermediate_pressed.png" id="7_rarx7"]
+[ext_resource type="Texture2D" uid="uid://bobkflofsea04" path="res://Sprites/Buttons/btn_intermediate_locked.png" id="8_teheg"]
+[ext_resource type="Texture2D" uid="uid://bjp3vctccg2jl" path="res://Sprites/Buttons/btn_back_pressed.png" id="8_viese"]
+[ext_resource type="Texture2D" uid="uid://esto32r2fgme" path="res://Sprites/Buttons/btn_advanced_pressed.png" id="9_tpv8j"]
+[ext_resource type="Texture2D" uid="uid://dutb4dg4ngfik" path="res://Sprites/Buttons/btn_advanced_locked.png" id="11_c7xio"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_teheg"]
+texture = ExtResource("2_ovc01")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tfo8"]
+bg_color = Color(0.0455, 0.15207496, 0.35, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.44099998, 0.5937166, 0.98, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Difficulty_Selection" type="Node2D" unique_id=2006595853]
+script = ExtResource("1_7yjbh")
+
+[node name="Panel" type="Panel" parent="." unique_id=785420182]
+offset_left = -1.0
+offset_right = 1153.0
+offset_bottom = 648.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_teheg")
+
+[node name="Panel2" type="Panel" parent="." unique_id=966594570]
+offset_top = -1.0
+offset_right = 1153.0
+offset_bottom = 77.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8tfo8")
+
+[node name="Label" type="Label" parent="." unique_id=383796]
+offset_left = 304.0
+offset_top = 5.0
+offset_right = 874.0
+offset_bottom = 74.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("3_7xrg1")
+theme_override_font_sizes/font_size = 38
+text = "DEPLOYMENT MODE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Beginner" type="TextureButton" parent="." unique_id=510796474]
+texture_filter = 1
+offset_left = 208.0
+offset_top = 104.0
+offset_right = 880.2688
+offset_bottom = 218.2857
+scale = Vector2(1.19, 1.19)
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_rarx7")
+texture_pressed = ExtResource("5_ovc01")
+stretch_mode = 0
+
+[node name="Intermediate" type="TextureButton" parent="." unique_id=828139273]
+texture_filter = 1
+offset_left = 207.99998
+offset_top = 256.0
+offset_right = 880.2688
+offset_bottom = 370.2857
+scale = Vector2(1.19, 1.19)
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_tpv8j")
+texture_pressed = ExtResource("7_rarx7")
+texture_disabled = ExtResource("8_teheg")
+stretch_mode = 0
+
+[node name="Advance" type="TextureButton" parent="." unique_id=633953387]
+texture_filter = 1
+offset_left = 208.0
+offset_top = 408.0
+offset_right = 880.2688
+offset_bottom = 522.28577
+scale = Vector2(1.19, 1.19)
+texture_normal = ExtResource("6_teheg")
+texture_pressed = ExtResource("9_tpv8j")
+texture_disabled = ExtResource("11_c7xio")
+stretch_mode = 0
+
+[node name="Back" type="TextureButton" parent="." unique_id=1808738286]
+offset_left = 480.0
+offset_top = 565.0
+offset_right = 680.0
+offset_bottom = 629.0
+texture_normal = ExtResource("7_c7xio")
+texture_pressed = ExtResource("8_viese")
+stretch_mode = 0
+
+[connection signal="pressed" from="Beginner" to="." method="_on_beginner_pressed"]
+[connection signal="pressed" from="Intermediate" to="." method="_on_intermidiate_pressed"]
+[connection signal="pressed" from="Intermediate" to="." method="_on_intermediate_pressed"]
+[connection signal="pressed" from="Advance" to="." method="_on_advance_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

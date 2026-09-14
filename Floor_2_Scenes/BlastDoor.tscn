@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://cpm42nxck3wf6"]
+
+[ext_resource type="Texture2D" uid="uid://vk5a1r78pqp5" path="res://Sprites/floor2_sprites/obstacle_blast_door_sheet.png" id="1_6hgpf"]
+[ext_resource type="Script" uid="uid://cjqpgjc0xt1wl" path="res://Floor_2_Scenes/blast_door.gd" id="1_j767y"]
+[ext_resource type="FontFile" uid="uid://blo02h3xiw0qd" path="res://Sprites/PressStart2P.ttf" id="3_1gqrl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su2q5"]
+atlas = ExtResource("1_6hgpf")
+region = Rect2(0, 0, 56, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i41k5"]
+atlas = ExtResource("1_6hgpf")
+region = Rect2(56, 0, 56, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hegoh"]
+atlas = ExtResource("1_6hgpf")
+region = Rect2(112, 0, 56, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xqoc"]
+atlas = ExtResource("1_6hgpf")
+region = Rect2(168, 0, 56, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh3q5"]
+atlas = ExtResource("1_6hgpf")
+region = Rect2(224, 0, 56, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4puq4"]
+atlas = ExtResource("1_6hgpf")
+region = Rect2(280, 0, 56, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61wh8"]
+atlas = ExtResource("1_6hgpf")
+region = Rect2(336, 0, 56, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dqvvf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su2q5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i41k5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hegoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xqoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hh3q5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4puq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61wh8")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wn1y"]
+size = Vector2(56, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j767y"]
+size = Vector2(7, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gqrl"]
+size = Vector2(57, 51)
+
+[node name="BlastDoor" type="StaticBody2D" unique_id=1540485603]
+script = ExtResource("1_j767y")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=622078495]
+position = Vector2(33, 60)
+scale = Vector2(1.1666666, 1.1428572)
+sprite_frames = SubResource("SpriteFrames_dqvvf")
+frame_progress = 0.099898085
+offset = Vector2(0, -16)
+
+[node name="SolidWall" type="CollisionShape2D" parent="." unique_id=640995278]
+visible = false
+position = Vector2(28, 37)
+shape = SubResource("RectangleShape2D_4wn1y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1712593083]
+visible = false
+position = Vector2(3.5, 37)
+shape = SubResource("RectangleShape2D_j767y")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=303107960]
+visible = false
+position = Vector2(53, 37)
+shape = SubResource("RectangleShape2D_j767y")
+
+[node name="ProximityZone" type="Area2D" parent="." unique_id=2131297861]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProximityZone" unique_id=155169784]
+visible = false
+position = Vector2(28.5, 62.5)
+shape = SubResource("RectangleShape2D_1gqrl")
+
+[node name="HintLabel" type="Label" parent="." unique_id=573801502]
+texture_filter = 1
+offset_left = -28.0
+offset_top = 75.0
+offset_right = 86.0
+offset_bottom = 98.0
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_1gqrl")
+theme_override_font_sizes/font_size = 6
+text = "[ SWITCH REQUIRED ]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="ProximityZone" to="." method="_on_proximity_zone_body_entered"]
+[connection signal="body_exited" from="ProximityZone" to="." method="_on_proximity_zone_body_exited"]

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://d2pibk87u4v5o"]
+
+[ext_resource type="Script" uid="uid://c0q17odaqwkgv" path="res://Floor_2_Scenes/obstacle_f2_5.gd" id="1_n8jb5"]
+[ext_resource type="Texture2D" uid="uid://br2ujgxo6fpvu" path="res://Sprites/floor2_sprites/obstacle_laser_fence.png" id="2_2olay"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_516hp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2olay")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3c2cy"]
+size = Vector2(24, 72)
+
+[node name="obstacle_f2_1" type="StaticBody2D" unique_id=1162637693]
+script = ExtResource("1_n8jb5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=922984354]
+position = Vector2(16, 40)
+sprite_frames = SubResource("SpriteFrames_516hp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=580289223]
+position = Vector2(12, 44)
+shape = SubResource("RectangleShape2D_3c2cy")

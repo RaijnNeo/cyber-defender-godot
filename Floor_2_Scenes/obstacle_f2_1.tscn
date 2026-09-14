@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://btbkyti57f5kp"]
+
+[ext_resource type="Script" uid="uid://cn1clp5wcvkkb" path="res://Floor_2_Scenes/obstacle_f2_1.gd" id="1_w6sya"]
+[ext_resource type="Texture2D" uid="uid://dlox6et5mald0" path="res://Sprites/floor2_sprites/containment_node_f01.png" id="2_gipo1"]
+[ext_resource type="Texture2D" uid="uid://dpb1v5okp18ta" path="res://Sprites/floor2_sprites/containment_node_f02.png" id="3_4ohja"]
+[ext_resource type="Texture2D" uid="uid://c4iv4kw70rdv0" path="res://Sprites/floor2_sprites/containment_node_f03.png" id="4_gg10r"]
+[ext_resource type="Texture2D" uid="uid://d0c2s06pimxir" path="res://Sprites/floor2_sprites/containment_node_f04.png" id="5_vhf3x"]
+[ext_resource type="Texture2D" uid="uid://ctdq4tygdvtu8" path="res://Sprites/floor2_sprites/containment_node_f05.png" id="6_clddt"]
+[ext_resource type="Texture2D" uid="uid://vrdh78vdg2kq" path="res://Sprites/floor2_sprites/containment_node_f06.png" id="7_yqymv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dqfuc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gipo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4ohja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gg10r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vhf3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_clddt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yqymv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yqymv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_clddt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vhf3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gg10r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4ohja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gipo1")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6sya"]
+size = Vector2(40, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gipo1"]
+size = Vector2(30, 60)
+
+[node name="obstacle_f2_1" type="StaticBody2D" unique_id=1162637693]
+script = ExtResource("1_w6sya")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=978388162]
+position = Vector2(24, 44)
+sprite_frames = SubResource("SpriteFrames_dqfuc")
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.19493847
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1318605524]
+visible = false
+position = Vector2(20, 6.5)
+shape = SubResource("RectangleShape2D_w6sya")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=528937261]
+visible = false
+position = Vector2(20, 75)
+shape = SubResource("RectangleShape2D_w6sya")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=131892038]
+visible = false
+position = Vector2(20, 40)
+shape = SubResource("RectangleShape2D_gipo1")

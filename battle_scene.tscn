@@ -1,0 +1,320 @@
+[gd_scene format=3 uid="uid://b2bs07m680jwu"]
+
+[ext_resource type="Texture2D" uid="uid://byk6u3qf0g8tt" path="res://Sprites/backgrounds/background1.png" id="1_5g7vw"]
+[ext_resource type="Script" uid="uid://d12gjjesvi85y" path="res://battle_scene.gd" id="1_5joda"]
+[ext_resource type="Texture2D" uid="uid://b2ne7wt8lx5nl" path="res://Sprites/malwares/trojan2.png" id="2_5joda"]
+[ext_resource type="Texture2D" uid="uid://cwk81w0ttsjgv" path="res://Sprites/player/avatar2.png" id="4_5joda"]
+[ext_resource type="Texture2D" uid="uid://c2txcp7mbcehl" path="res://Sprites/UI/hpbar1.png" id="5_gf131"]
+[ext_resource type="FontFile" uid="uid://blo02h3xiw0qd" path="res://Sprites/PressStart2P.ttf" id="6_sl17i"]
+[ext_resource type="Texture2D" uid="uid://d3cquc4bk8ubg" path="res://Sprites/UI/dialoguebox.PNG" id="7_irjls"]
+[ext_resource type="Texture2D" uid="uid://bkg6l8lxq58c6" path="res://Sprites/Buttons/btl_scn/btn_execute.png" id="8_3vhyp"]
+[ext_resource type="Texture2D" uid="uid://dpvrvinrefu1v" path="res://Sprites/UI/attack_menu.png" id="8_67y2d"]
+[ext_resource type="Texture2D" uid="uid://b2om6sthykr1v" path="res://Sprites/Buttons/btl_scn/btn_execute_pressed.png" id="9_67y2d"]
+[ext_resource type="AudioStream" uid="uid://csyriywtibl5v" path="res://Audio/BattleBG1.ogg" id="10_m1vkf"]
+[ext_resource type="Texture2D" uid="uid://dnu4ejc8cicrj" path="res://Sprites/Buttons/btl_scn/btn_patches.png" id="10_pamyf"]
+[ext_resource type="Texture2D" uid="uid://d3s30qobtpi04" path="res://Sprites/Buttons/btl_scn/btn_patches_pressed.png" id="11_lvpmx"]
+[ext_resource type="Texture2D" uid="uid://dxaijpvboowdw" path="res://Sprites/Buttons/btl_scn/btn_knowledge.png" id="12_j3x6a"]
+[ext_resource type="Texture2D" uid="uid://cyxaw82pbn6mu" path="res://Sprites/Buttons/btl_scn/btn_knowledge_pressed.png" id="13_tgk4g"]
+[ext_resource type="Texture2D" uid="uid://yfti8edl5bne" path="res://Sprites/Buttons/btl_scn/btn_run.png" id="14_vmq30"]
+[ext_resource type="Texture2D" uid="uid://cxbswtol0hy5w" path="res://Sprites/Buttons/btl_scn/btn_run_pressed.png" id="15_05lyd"]
+[ext_resource type="AudioStream" uid="uid://od7dcaalo50c" path="res://Audio/SFX1.mp3" id="18_j3x6a"]
+[ext_resource type="AudioStream" uid="uid://ba5oq7gabk73x" path="res://Audio/SFX2.mp3" id="19_tgk4g"]
+[ext_resource type="AudioStream" uid="uid://b83gsmgfdayo2" path="res://Audio/SFX3.mp3" id="20_vmq30"]
+[ext_resource type="AudioStream" uid="uid://bt8w1es48hvga" path="res://Audio/SFX4.mp3" id="21_tgk4g"]
+[ext_resource type="AudioStream" uid="uid://s44ima8tfpt1" path="res://Audio/battle_btn.mp3" id="22_vmq30"]
+[ext_resource type="AudioStream" uid="uid://jw8ifrmmyfsg" path="res://Audio/exe_sfx.mp3" id="23_05lyd"]
+[ext_resource type="AudioStream" uid="uid://xxpkpcp0rdmv" path="res://Audio/dlg_sfx.mp3" id="24_pp5u3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sl17i"]
+atlas = ExtResource("4_5joda")
+region = Rect2(690, 0, 345, 376)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5h4l"]
+atlas = ExtResource("4_5joda")
+region = Rect2(690, 376, 345, 376)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtmj2"]
+atlas = ExtResource("4_5joda")
+region = Rect2(1035, 0, 345, 376)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_irjls"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sl17i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5h4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtmj2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[node name="BattleScene" type="Node2D" unique_id=1926210229]
+script = ExtResource("1_5joda")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1332121606]
+position = Vector2(577.00006, 324.37503)
+scale = Vector2(0.81924725, 0.84212244)
+texture = ExtResource("1_5g7vw")
+
+[node name="Enemy" type="Sprite2D" parent="." unique_id=190919211]
+position = Vector2(891, 261)
+scale = Vector2(0.5004463, 0.55396193)
+texture = ExtResource("2_5joda")
+
+[node name="Player" type="AnimatedSprite2D" parent="." unique_id=495107219]
+position = Vector2(360, 335)
+sprite_frames = SubResource("SpriteFrames_irjls")
+animation = &"idle"
+frame = 1
+frame_progress = 0.98283887
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1324029363]
+
+[node name="PlayerPanel" type="Panel" parent="UI" unique_id=1900969183]
+
+[node name="HPBarBG" type="Sprite2D" parent="UI/PlayerPanel" unique_id=1912449638]
+position = Vector2(377.00003, 148)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_gf131")
+region_enabled = true
+region_rect = Rect2(0, 570, 1035, 95)
+
+[node name="HPBarFill" type="Sprite2D" parent="UI/PlayerPanel" unique_id=810279134]
+position = Vector2(195.99997, 129)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_gf131")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1035, 95)
+
+[node name="PlayerName" type="Label" parent="UI/PlayerPanel" unique_id=1779571770]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 114.0
+offset_right = 317.0
+offset_bottom = 137.0
+theme_override_fonts/font = ExtResource("6_sl17i")
+text = "RESULTA"
+
+[node name="EnemyPanel" type="Panel" parent="UI" unique_id=29270443]
+
+[node name="HPBarBG" type="Sprite2D" parent="UI/EnemyPanel" unique_id=1276621110]
+position = Vector2(879, 91.00001)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_gf131")
+region_enabled = true
+region_rect = Rect2(0, 570, 1035, 95)
+
+[node name="HPBarFill" type="Sprite2D" parent="UI/EnemyPanel" unique_id=549757200]
+position = Vector2(698.99994, 72)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_gf131")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1035, 95)
+
+[node name="EnemyHPLabel" type="Label" parent="UI/EnemyPanel" unique_id=1956978884]
+z_index = 10
+layout_mode = 1
+offset_left = 710.0
+offset_top = 84.0
+offset_right = 750.0
+offset_bottom = 107.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("6_sl17i")
+theme_override_font_sizes/font_size = 9
+horizontal_alignment = 1
+
+[node name="EnemyName" type="Label" parent="UI/EnemyPanel" unique_id=785281383]
+layout_mode = 0
+offset_left = 706.0
+offset_top = 57.0
+offset_right = 858.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("6_sl17i")
+text = "ENEMY"
+
+[node name="DialogueBox" type="Panel" parent="UI" unique_id=2088152274]
+z_index = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/DialogueBox" unique_id=123620818]
+self_modulate = Color(1, 1, 1, 0.74509805)
+position = Vector2(376.50003, 563)
+scale = Vector2(1.4395832, 0.8108106)
+texture = ExtResource("7_irjls")
+
+[node name="DialogueLabel" type="Label" parent="UI/DialogueBox" unique_id=991457068]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 525.0
+offset_right = 685.0
+offset_bottom = 595.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_sl17i")
+autowrap_mode = 2
+
+[node name="AttackMenu" type="Panel" parent="UI" unique_id=1415740371]
+z_index = 3
+offset_left = 32.0
+offset_top = 503.0
+offset_right = 722.0
+offset_bottom = 622.0
+mouse_filter = 1
+
+[node name="BG" type="Sprite2D" parent="UI/AttackMenu" unique_id=1633877013]
+position = Vector2(345.5, 61.00002)
+scale = Vector2(1.4354167, 0.7972976)
+texture = ExtResource("8_67y2d")
+
+[node name="BtnFirewall" type="TextureButton" parent="UI/AttackMenu" unique_id=860531528]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = 511.0
+offset_right = 28.0
+offset_bottom = 501.5
+
+[node name="BtnAntivirus" type="TextureButton" parent="UI/AttackMenu" unique_id=1667755840]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 36.0
+offset_top = 510.0
+offset_right = 23.0
+offset_bottom = 501.5
+grow_horizontal = 2
+
+[node name="BtnSQLinject" type="TextureButton" parent="UI/AttackMenu" unique_id=2103238846]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 507.5
+offset_right = 31.0
+offset_bottom = 498.0
+grow_vertical = 2
+
+[node name="BtnBruteForce" type="TextureButton" parent="UI/AttackMenu" unique_id=1248711445]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = 509.5
+offset_right = 25.0
+offset_bottom = 499.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="UI" unique_id=1603244860]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Execute" type="TextureButton" parent="UI/Control" unique_id=216011166]
+layout_mode = 0
+offset_left = 742.0
+offset_top = 489.0
+offset_right = 932.0
+offset_bottom = 552.0
+texture_normal = ExtResource("8_3vhyp")
+texture_pressed = ExtResource("9_67y2d")
+stretch_mode = 5
+
+[node name="Patches" type="TextureButton" parent="UI/Control" unique_id=1265062515]
+layout_mode = 0
+offset_left = 939.0
+offset_top = 489.0
+offset_right = 1129.0
+offset_bottom = 552.0
+texture_normal = ExtResource("10_pamyf")
+texture_pressed = ExtResource("11_lvpmx")
+stretch_mode = 5
+
+[node name="Knowledges" type="TextureButton" parent="UI/Control" unique_id=1251664983]
+layout_mode = 0
+offset_left = 742.0
+offset_top = 560.0
+offset_right = 932.0
+offset_bottom = 623.0
+texture_normal = ExtResource("12_j3x6a")
+texture_pressed = ExtResource("13_tgk4g")
+stretch_mode = 5
+
+[node name="Run" type="TextureButton" parent="UI/Control" unique_id=1463185139]
+layout_mode = 0
+offset_left = 939.0
+offset_top = 560.0
+offset_right = 1129.0
+offset_bottom = 623.0
+texture_normal = ExtResource("14_vmq30")
+texture_pressed = ExtResource("15_05lyd")
+stretch_mode = 5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1776743015]
+stream = ExtResource("10_m1vkf")
+volume_db = -10.021
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="SFX1" type="AudioStreamPlayer2D" parent="." unique_id=1766613237]
+stream = ExtResource("18_j3x6a")
+bus = &"SFX"
+
+[node name="SFX2" type="AudioStreamPlayer2D" parent="." unique_id=1744078604]
+stream = ExtResource("19_tgk4g")
+bus = &"SFX"
+
+[node name="SFX3" type="AudioStreamPlayer2D" parent="." unique_id=1436171841]
+stream = ExtResource("20_vmq30")
+bus = &"SFX"
+
+[node name="SFX4" type="AudioStreamPlayer2D" parent="." unique_id=836972425]
+stream = ExtResource("21_tgk4g")
+volume_db = 0.717
+bus = &"SFX"
+
+[node name="VoicePlayer" type="AudioStreamPlayer" parent="." unique_id=586610927]
+volume_db = -8.895
+
+[node name="BTL_BTN" type="AudioStreamPlayer2D" parent="." unique_id=74443157]
+stream = ExtResource("22_vmq30")
+volume_db = -3.573
+max_polyphony = 10
+bus = &"SFX"
+
+[node name="exe_sfx" type="AudioStreamPlayer2D" parent="." unique_id=324495221]
+stream = ExtResource("23_05lyd")
+volume_db = 4.366
+max_polyphony = 10
+bus = &"SFX"
+
+[node name="dlg_sfx" type="AudioStreamPlayer2D" parent="." unique_id=1027457603]
+stream = ExtResource("24_pp5u3")
+volume_db = 10.0
+max_polyphony = 10
+
+[connection signal="pressed" from="UI/AttackMenu/BtnFirewall" to="." method="_on_btn_firewall_pressed"]
+[connection signal="pressed" from="UI/AttackMenu/BtnAntivirus" to="." method="_on_btn_antivirus_pressed"]
+[connection signal="pressed" from="UI/AttackMenu/BtnSQLinject" to="." method="_on_btn_SQLInject_pressed"]
+[connection signal="pressed" from="UI/AttackMenu/BtnBruteForce" to="." method="_on_btn_BruteForce_pressed"]
+[connection signal="pressed" from="UI/Control/Execute" to="." method="_on_execute_pressed"]
+[connection signal="pressed" from="UI/Control/Patches" to="." method="_on_patches_pressed"]
+[connection signal="pressed" from="UI/Control/Knowledges" to="." method="_on_knowledges_pressed"]
+[connection signal="pressed" from="UI/Control/Run" to="." method="_on_run_pressed"]

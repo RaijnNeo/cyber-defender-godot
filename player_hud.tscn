@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://d03tjw0hiu2c3"]
+
+[ext_resource type="Script" uid="uid://c8b7xcfv6jy01" path="res://player_hud.gd" id="1_tvw2b"]
+[ext_resource type="FontFile" uid="uid://blo02h3xiw0qd" path="res://Sprites/PressStart2P.ttf" id="2_cs3pk"]
+
+[node name="PlayerHUD" type="CanvasLayer" unique_id=928804856]
+layer = 30
+script = ExtResource("1_tvw2b")
+
+[node name="TabBtn" type="Button" parent="." unique_id=1930960936]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1940812431]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=1187780822]
+layout_mode = 2
+
+[node name="KillTitle" type="Label" parent="Panel/VBox" unique_id=1052141810]
+layout_mode = 2
+
+[node name="KillCount" type="Label" parent="Panel/VBox" unique_id=139143335]
+layout_mode = 2
+
+[node name="KillSub" type="Label" parent="Panel/VBox" unique_id=584229447]
+layout_mode = 2
+
+[node name="Divider1" type="Label" parent="Panel/VBox" unique_id=531714155]
+layout_mode = 2
+
+[node name="SysTitle" type="Label" parent="Panel/VBox" unique_id=262430415]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cs3pk")
+text = "SYSTEM HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SysBarBG" type="PanelContainer" parent="Panel/VBox" unique_id=266855288]
+layout_mode = 2
+
+[node name="SysBarFill" type="PanelContainer" parent="Panel/VBox/SysBarBG" unique_id=1986366647]
+layout_mode = 2
+
+[node name="SysHPSub" type="Label" parent="Panel/VBox" unique_id=745688277]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cs3pk")
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Divider2" type="Label" parent="Panel/VBox" unique_id=235469960]
+layout_mode = 2
+
+[node name="LvlTitle" type="Label" parent="Panel/VBox" unique_id=537045570]
+layout_mode = 2
+
+[node name="LvlNum" type="Label" parent="Panel/VBox" unique_id=27564057]
+layout_mode = 2
+
+[node name="BarBG" type="PanelContainer" parent="Panel/VBox" unique_id=1333723437]
+layout_mode = 2
+
+[node name="BarFill" type="PanelContainer" parent="Panel/VBox/BarBG" unique_id=1432216572]
+layout_mode = 2
+
+[node name="LvlSub" type="Label" parent="Panel/VBox" unique_id=1205655497]
+layout_mode = 2
+
+[node name="Divider3" type="Label" parent="Panel/VBox" unique_id=69575967]
+layout_mode = 2
+
+[node name="LockNote" type="Label" parent="Panel/VBox" unique_id=1850816358]
+layout_mode = 2

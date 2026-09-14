@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://wo8yb6r3e4j4"]
+
+[ext_resource type="Script" uid="uid://dy40bowxubnsu" path="res://transition_manager.gd" id="1_xqma1"]
+
+[sub_resource type="Animation" id="Animation_gr74w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4ut8r"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1qeta"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_edj8g"]
+_data = {
+&"RESET": SubResource("Animation_gr74w"),
+&"fade_in": SubResource("Animation_4ut8r"),
+&"fade_out": SubResource("Animation_1qeta")
+}
+
+[node name="TransitionManager" type="Node2D" unique_id=1043119770]
+script = ExtResource("1_xqma1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1409724791]
+layer = 10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=870621837]
+self_modulate = Color(0, 0, 0, 1)
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1294263654]
+libraries/ = SubResource("AnimationLibrary_edj8g")
+
+[node name="TopRect" type="ColorRect" parent="CanvasLayer" unique_id=70162150]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BottomRect" type="ColorRect" parent="CanvasLayer" unique_id=139329897]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

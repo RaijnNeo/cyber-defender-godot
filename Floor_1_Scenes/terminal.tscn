@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://bdtmeqiplukjr"]
+
+[ext_resource type="Script" uid="uid://dllvycybkm2l8" path="res://Floor_1_Scenes/terminal.gd" id="1_b5qft"]
+[ext_resource type="FontFile" uid="uid://blo02h3xiw0qd" path="res://Sprites/PressStart2P.ttf" id="2_b5qft"]
+[ext_resource type="Texture2D" uid="uid://1qvomendqo1u" path="res://Sprites/obstacles/radius_ring_b_pixely.png" id="2_i03jj"]
+[ext_resource type="Texture2D" uid="uid://dbbe7kt7m8ypd" path="res://Sprites/obstacles/terminal_b_glow_2x.png" id="3_icv5u"]
+[ext_resource type="Texture2D" uid="uid://cmuf2t6a5c5v1" path="res://Sprites/obstacles/terminal_b_offline_2x.png" id="4_omadn"]
+[ext_resource type="Texture2D" uid="uid://dej8ongprdris" path="res://Sprites/obstacles/terminal_b_online_2x.png" id="5_17afq"]
+[ext_resource type="AudioStream" uid="uid://dn44toyej4gw7" path="res://Audio/err_sfx.mp3" id="7_icv5u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_luixy"]
+radius = 26.004807
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a3cu2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_icv5u")
+}],
+"loop": true,
+"name": &"glow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_omadn")
+}],
+"loop": true,
+"name": &"offline",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_17afq")
+}],
+"loop": true,
+"name": &"online",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5qft"]
+size = Vector2(39, 40)
+
+[node name="Terminal" type="Area2D" unique_id=1536102477]
+y_sort_enabled = true
+script = ExtResource("1_b5qft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1872761084]
+visible = false
+z_index = 10
+position = Vector2(0, -28)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_luixy")
+
+[node name="RingSprite" type="Sprite2D" parent="." unique_id=873033695]
+z_index = -1
+position = Vector2(1.9073486e-06, -27.499996)
+scale = Vector2(0.59374994, 0.5885416)
+texture = ExtResource("2_i03jj")
+
+[node name="TerminalSprite" type="AnimatedSprite2D" parent="." unique_id=1237583847]
+position = Vector2(0.9999995, -27)
+scale = Vector2(0.84374994, 0.85937506)
+sprite_frames = SubResource("SpriteFrames_a3cu2")
+animation = &"online"
+
+[node name="InteractLabel" type="Label" parent="." unique_id=813389408]
+z_index = 5
+z_as_relative = false
+offset_left = -68.0
+offset_top = -91.0
+offset_right = 68.0
+offset_bottom = -69.0
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_b5qft")
+theme_override_font_sizes/font_size = 6
+horizontal_alignment = 1
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=1367038834]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=728926940]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_b5qft")
+
+[node name="err_sfx" type="AudioStreamPlayer2D" parent="." unique_id=546971112]
+stream = ExtResource("7_icv5u")
+volume_db = -2.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bhkvw5ksm40eh"]
+
+[ext_resource type="Texture2D" uid="uid://d1u0tvg3eftbe" path="res://Sprites/obstacles/obstacle_cmos_battery.png" id="1_t3mvm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1e7g7"]
+radius = 23.086792
+
+[node name="Obstacle" type="StaticBody2D" unique_id=1538443822]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1656001958]
+position = Vector2(0, 16)
+texture = ExtResource("1_t3mvm")
+centered = false
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=847326195]
+position = Vector2(24, 26)
+shape = SubResource("CircleShape2D_1e7g7")

@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://ctwa5wnmg1x3u"]
+
+[ext_resource type="Script" uid="uid://c5oleinqxbrc0" path="res://MainMenu.gd" id="1_i26rj"]
+[ext_resource type="Texture2D" uid="uid://b26mm5jlfhx1n" path="res://Sprites/Background.jpg" id="2_cqjrg"]
+[ext_resource type="Texture2D" uid="uid://bhioor53sub4o" path="res://Sprites/Buttons/btn_start_game.png" id="3_7r1g0"]
+[ext_resource type="Texture2D" uid="uid://bi7y6500ukd1r" path="res://Sprites/Buttons/btn_start_game_pressed.png" id="4_afec1"]
+[ext_resource type="Texture2D" uid="uid://b5sqwd42663kp" path="res://Sprites/Buttons/btn_settings.png" id="4_cqjrg"]
+[ext_resource type="Texture2D" uid="uid://0ah1a1os8yee" path="res://Sprites/Buttons/btn_it_handbook_pressed.png" id="5_31qfy"]
+[ext_resource type="Texture2D" uid="uid://b4rauo20r60xa" path="res://Sprites/Buttons/btn_profile.png" id="5_e2xy7"]
+[ext_resource type="Texture2D" uid="uid://cpdffxp0dnnnq" path="res://Sprites/Buttons/btn_x.png" id="6_fimr5"]
+[ext_resource type="FontFile" uid="uid://blo02h3xiw0qd" path="res://Sprites/PressStart2P.ttf" id="7_e2xy7"]
+[ext_resource type="Texture2D" uid="uid://c1c6coxeyflwg" path="res://Sprites/Buttons/btn_settings_pressed.png" id="7_qie43"]
+[ext_resource type="Texture2D" uid="uid://df66k0feh7s50" path="res://Sprites/Buttons/btn_profile_pressed.png" id="9_61cf8"]
+[ext_resource type="Texture2D" uid="uid://dqsi5te17npp5" path="res://Sprites/Buttons/btn_x_pressed.png" id="11_31qfy"]
+[ext_resource type="Texture2D" uid="uid://d2p33slcv58k0" path="res://Sprites/cyber_defender_logo.png" id="13_qie43"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fimr5"]
+texture = ExtResource("2_cqjrg")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u7cqb"]
+load_path = "res://.godot/imported/btn_it_handbook.png-29bde729e6e2ee9450b86572d7d36838.ctex"
+
+[node name="Main Menu" type="Node2D" unique_id=1246341189]
+script = ExtResource("1_i26rj")
+
+[node name="Panel" type="Panel" parent="." unique_id=1070646836]
+offset_left = -1.0
+offset_right = 1153.0
+offset_bottom = 648.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fimr5")
+metadata/_edit_lock_ = true
+
+[node name="Control_manager" type="Control" parent="." unique_id=898062700]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Start" type="TextureButton" parent="Control_manager" unique_id=2133481280]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 308.0
+offset_right = 904.0
+offset_bottom = 388.0
+texture_normal = ExtResource("3_7r1g0")
+texture_pressed = ExtResource("4_afec1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Handbook" type="TextureButton" parent="Control_manager" unique_id=1334618464]
+visible = false
+layout_mode = 0
+offset_left = 243.0
+offset_top = 361.0
+offset_right = 898.0
+offset_bottom = 441.0
+texture_normal = SubResource("CompressedTexture2D_u7cqb")
+texture_pressed = ExtResource("5_31qfy")
+stretch_mode = 0
+
+[node name="Settings" type="TextureButton" parent="Control_manager" unique_id=1498473036]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 510.0
+offset_right = 906.0
+offset_bottom = 590.0
+texture_normal = ExtResource("4_cqjrg")
+texture_pressed = ExtResource("7_qie43")
+stretch_mode = 0
+
+[node name="Profile" type="TextureButton" parent="Control_manager" unique_id=765403247]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 407.0
+offset_right = 905.0
+offset_bottom = 487.0
+texture_normal = ExtResource("5_e2xy7")
+texture_pressed = ExtResource("9_61cf8")
+stretch_mode = 0
+
+[node name="Quit" type="TextureButton" parent="Control_manager" unique_id=1926482773]
+layout_mode = 0
+offset_left = 1085.0
+offset_top = 5.0
+offset_right = 1149.0
+offset_bottom = 69.0
+texture_normal = ExtResource("6_fimr5")
+texture_pressed = ExtResource("11_31qfy")
+
+[node name="Label" type="Label" parent="." unique_id=2004544413]
+offset_left = 90.0
+offset_top = 66.0
+offset_right = 1070.0
+offset_bottom = 162.0
+theme_override_colors/font_color = Color(1, 0.78, 0.120000005, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9647059)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_e2xy7")
+theme_override_font_sizes/font_size = 50
+text = "CYBER DEFENDER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Logo" type="Sprite2D" parent="." unique_id=2110233791]
+position = Vector2(574, 219.00002)
+scale = Vector2(0.64959013, 0.61752135)
+texture = ExtResource("13_qie43")
+
+[connection signal="pressed" from="Control_manager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Control_manager/Handbook" to="." method="_on_handbook_pressed"]
+[connection signal="pressed" from="Control_manager/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Control_manager/Profile" to="." method="_on_profile_pressed"]
+[connection signal="pressed" from="Control_manager/Quit" to="." method="_on_quit_pressed"]

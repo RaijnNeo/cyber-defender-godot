@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://cgjpgqpt1qnkk"]
+
+[ext_resource type="Script" uid="uid://2jujuqvsorj8" path="res://loading_screen.gd" id="1_mggpi"]
+[ext_resource type="FontFile" uid="uid://blo02h3xiw0qd" path="res://Sprites/PressStart2P.ttf" id="2_htrc2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mggpi"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.019607844, 0.050980393, 0.101960786, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.8980392, 1, 1)
+corner_detail = 1
+
+[node name="loading_screen" type="CanvasLayer" unique_id=1310881140]
+layer = 100
+script = ExtResource("1_mggpi")
+
+[node name="BG" type="ColorRect" parent="." unique_id=1041033211]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ScanLines" type="ColorRect" parent="." unique_id=1012361860]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.1882353)
+
+[node name="MarginBox" type="MarginContainer" parent="." unique_id=432607180]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 30
+
+[node name="Terminal" type="PanelContainer" parent="MarginBox" unique_id=660049223]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mggpi")
+
+[node name="VBox" type="VBoxContainer" parent="MarginBox/Terminal" unique_id=1922389878]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HeaderRow" type="HBoxContainer" parent="MarginBox/Terminal/VBox" unique_id=1500018036]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="HeaderLabel" type="Label" parent="MarginBox/Terminal/VBox/HeaderRow" unique_id=1606872409]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0.8980392, 1, 1)
+theme_override_fonts/font = ExtResource("2_htrc2")
+theme_override_font_sizes/font_size = 12
+text = "[ CYBER DEFENDER OS v1.0 // SECURE BOOT ]"
+clip_text = true
+
+[node name="BlinkCursor" type="Label" parent="MarginBox/Terminal/VBox/HeaderRow" unique_id=1177538139]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.8980392, 1, 1)
+theme_override_fonts/font = ExtResource("2_htrc2")
+theme_override_font_sizes/font_size = 12
+text = "█"
+
+[node name="LogScroll" type="ScrollContainer" parent="MarginBox/Terminal/VBox" unique_id=1135776564]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="LogContainer" type="VBoxContainer" parent="MarginBox/Terminal/VBox/LogScroll" unique_id=1677900044]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+
+[node name="ProgressRow" type="HBoxContainer" parent="MarginBox/Terminal/VBox" unique_id=477781403]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ProgressText" type="Label" parent="MarginBox/Terminal/VBox/ProgressRow" unique_id=1360628888]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.8980392, 1, 1)
+theme_override_fonts/font = ExtResource("2_htrc2")
+theme_override_font_sizes/font_size = 12
+text = "LOADING     "
+
+[node name="ProgressBar" type="Label" parent="MarginBox/Terminal/VBox/ProgressRow" unique_id=1193321009]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0.8980392, 1, 1)
+theme_override_fonts/font = ExtResource("2_htrc2")
+theme_override_font_sizes/font_size = 12
+text = "[░░░░░░░░░░░░░░░░░░░░░░░░░░░░]   0%"
+clip_text = true
+
+[node name="StatusLabel" type="Label" parent="MarginBox/Terminal/VBox" unique_id=278722787]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.33333334, 0.33333334, 0.33333334, 1)
+theme_override_fonts/font = ExtResource("2_htrc2")
+theme_override_font_sizes/font_size = 11
+text = ">> INITIALIZING SECURE ENVIRONMENT..."

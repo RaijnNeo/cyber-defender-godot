@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://buvu1l08g2mum"]
+
+[ext_resource type="Script" uid="uid://b85ciku335bf1" path="res://Floor_2_Scenes/obstacle_f2_2.gd" id="1_l5nv8"]
+[ext_resource type="Texture2D" uid="uid://e5nybid1j3ka" path="res://Sprites/floor2_sprites/cooling_tower_f01.png" id="3_s35cp"]
+[ext_resource type="Texture2D" uid="uid://ioayb4fklr7u" path="res://Sprites/floor2_sprites/cooling_tower_f02.png" id="4_qamfm"]
+[ext_resource type="Texture2D" uid="uid://cgswqd08rb8ec" path="res://Sprites/floor2_sprites/cooling_tower_f03.png" id="5_kbtgk"]
+[ext_resource type="Texture2D" uid="uid://d2yylfct4qjvp" path="res://Sprites/floor2_sprites/cooling_tower_f04.png" id="6_fnj64"]
+[ext_resource type="Texture2D" uid="uid://g3yb1gakqod8" path="res://Sprites/floor2_sprites/cooling_tower_f05.png" id="7_ix7pr"]
+[ext_resource type="Texture2D" uid="uid://htmg8chjawvl" path="res://Sprites/floor2_sprites/cooling_tower_f06.png" id="8_ptbga"]
+[ext_resource type="Texture2D" uid="uid://cknlrens2exqu" path="res://Sprites/floor2_sprites/cooling_tower_f08.png" id="9_l5nv8"]
+[ext_resource type="Texture2D" uid="uid://csorml6rborkr" path="res://Sprites/floor2_sprites/cooling_tower_f07.png" id="9_mugyv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jq5dg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_s35cp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qamfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kbtgk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fnj64")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ix7pr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ptbga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mugyv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_l5nv8")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5nv8"]
+size = Vector2(72, 69)
+
+[node name="obstacle_f2_1" type="StaticBody2D" unique_id=1162637693]
+script = ExtResource("1_l5nv8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=922984354]
+position = Vector2(40, 40)
+sprite_frames = SubResource("SpriteFrames_jq5dg")
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.3857164
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1677378561]
+visible = false
+position = Vector2(36, 37.5)
+shape = SubResource("RectangleShape2D_l5nv8")

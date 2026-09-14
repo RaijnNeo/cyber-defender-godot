@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://bqb80lkpenac5"]
+
+[ext_resource type="Script" uid="uid://bi5avuqf38ng2" path="res://Floor_2_Scenes/honeypot_terminal.gd" id="1_ib47g"]
+[ext_resource type="Texture2D" uid="uid://1qvomendqo1u" path="res://Sprites/obstacles/radius_ring_b_pixely.png" id="2_wr8q2"]
+[ext_resource type="Texture2D" uid="uid://2bxir3ifbpbg" path="res://Sprites/floor2_sprites/trap_honeypot_terminal_sheet.png" id="3_kyt5r"]
+[ext_resource type="FontFile" uid="uid://blo02h3xiw0qd" path="res://Sprites/PressStart2P.ttf" id="4_eqk3m"]
+[ext_resource type="AudioStream" uid="uid://dn44toyej4gw7" path="res://Audio/err_sfx.mp3" id="5_iq2qs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_luixy"]
+radius = 29.504236
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5fkn"]
+atlas = ExtResource("3_kyt5r")
+region = Rect2(0, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vax1j"]
+atlas = ExtResource("3_kyt5r")
+region = Rect2(48, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j48a2"]
+atlas = ExtResource("3_kyt5r")
+region = Rect2(96, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3r1t7"]
+atlas = ExtResource("3_kyt5r")
+region = Rect2(144, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g32da"]
+atlas = ExtResource("3_kyt5r")
+region = Rect2(192, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vie0s"]
+atlas = ExtResource("3_kyt5r")
+region = Rect2(240, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbxob"]
+atlas = ExtResource("3_kyt5r")
+region = Rect2(288, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7fxa"]
+atlas = ExtResource("3_kyt5r")
+region = Rect2(336, 0, 48, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2b6gj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5fkn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vax1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j48a2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3r1t7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g32da")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vie0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbxob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7fxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7fxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbxob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vie0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g32da")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3r1t7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j48a2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vax1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5fkn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5qft"]
+size = Vector2(39, 40)
+
+[node name="HoneypotTerminal" type="Area2D" unique_id=1536102477]
+y_sort_enabled = true
+script = ExtResource("1_ib47g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1872761084]
+visible = false
+z_index = 10
+position = Vector2(1, -28)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_luixy")
+
+[node name="RingSprite" type="Sprite2D" parent="." unique_id=873033695]
+z_index = -1
+position = Vector2(1, -28)
+scale = Vector2(0.64583325, 0.6458334)
+texture = ExtResource("2_wr8q2")
+
+[node name="TerminalSprite" type="AnimatedSprite2D" parent="." unique_id=1237583847]
+position = Vector2(4.9999995, -28.000002)
+scale = Vector2(0.84374994, 0.85937506)
+sprite_frames = SubResource("SpriteFrames_2b6gj")
+autoplay = "default"
+frame_progress = 0.22858974
+
+[node name="InteractLabel" type="Label" parent="." unique_id=813389408]
+z_index = 5
+z_as_relative = false
+offset_left = -68.0
+offset_top = -91.0
+offset_right = 68.0
+offset_bottom = -69.0
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_eqk3m")
+theme_override_font_sizes/font_size = 6
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=1367038834]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=728926940]
+visible = false
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_b5qft")
+
+[node name="err_sfx" type="AudioStreamPlayer2D" parent="." unique_id=546971112]
+stream = ExtResource("5_iq2qs")
+volume_db = -2.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]

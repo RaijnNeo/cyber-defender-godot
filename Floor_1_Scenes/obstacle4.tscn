@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ceacy6l70oc2m"]
+
+[ext_resource type="Texture2D" uid="uid://bh18fiipujf12" path="res://Sprites/obstacles/obstacle_port_audio.png" id="1_uy0l0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncmjk"]
+size = Vector2(32, 15)
+
+[node name="Obstacle" type="StaticBody2D" unique_id=1538443822]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1656001958]
+position = Vector2(0, 16)
+texture = ExtResource("1_uy0l0")
+centered = false
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=828734931]
+position = Vector2(16, 8.5)
+shape = SubResource("RectangleShape2D_ncmjk")

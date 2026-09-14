@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://dti8qtbiqovj1"]
+
+[ext_resource type="Script" uid="uid://2lascb6m5ce2" path="res://battle_result.gd" id="1_kwiae"]
+[ext_resource type="FontFile" uid="uid://blo02h3xiw0qd" path="res://Sprites/PressStart2P.ttf" id="1_p3x8c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3x8c"]
+bg_color = Color(0.05882353, 0.078431375, 0.16078432, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.2, 0.8, 0.6, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwiae"]
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.2, 0.8, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myyjg"]
+bg_color = Color(0.039215688, 0.2, 0.1254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.8, 0.6, 1)
+border_blend = true
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+
+[node name="BattleResult" type="CanvasLayer" unique_id=1705466214]
+script = ExtResource("1_kwiae")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=1315853508]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=728222090]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -116.0
+offset_right = 240.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p3x8c")
+
+[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=90571896]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Panel/VBox" unique_id=901310771]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p3x8c")
+theme_override_font_sizes/font_size = 28
+text = ">> VICTORY <<"
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="Panel/VBox" unique_id=580072747]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_kwiae")
+
+[node name="XPLabel" type="Label" parent="Panel/VBox" unique_id=543160352]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p3x8c")
+theme_override_font_sizes/font_size = 14
+text = "+ 30 XP Earned"
+horizontal_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="Panel/VBox" unique_id=1119294754]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p3x8c")
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+
+[node name="SysDmgLabel" type="Label" parent="Panel/VBox" unique_id=1510080475]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p3x8c")
+theme_override_font_sizes/font_size = 8
+text = "SYSTEM HP: 100/100"
+horizontal_alignment = 1
+
+[node name="ContinueBTN" type="Button" parent="Panel/VBox" unique_id=2112959540]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p3x8c")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_myyjg")
+text = "[ CONTINUE ]"

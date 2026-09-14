@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bfnkjgw326n2t"]
+
+[ext_resource type="Texture2D" uid="uid://bim1hsji08w3d" path="res://Sprites/obstacles/obstacle_cpu.png" id="1_egw4a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egw4a"]
+size = Vector2(80, 72)
+
+[node name="Obstacle_cpu" type="StaticBody2D" unique_id=776787877]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=714025912]
+texture = ExtResource("1_egw4a")
+centered = false
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1600632126]
+visible = false
+position = Vector2(40, 28)
+shape = SubResource("RectangleShape2D_egw4a")

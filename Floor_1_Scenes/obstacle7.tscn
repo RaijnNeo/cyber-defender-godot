@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://n2fblh3ujoo7"]
+
+[ext_resource type="Texture2D" uid="uid://cf6jqgda7dxtx" path="res://Sprites/obstacles/obstacle_port_usb.png" id="1_p1hqf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsn28"]
+size = Vector2(18, 31)
+
+[node name="Obstacle" type="StaticBody2D" unique_id=1538443822]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1656001958]
+position = Vector2(0, 16)
+texture = ExtResource("1_p1hqf")
+centered = false
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1153077276]
+visible = false
+position = Vector2(9, 16.5)
+shape = SubResource("RectangleShape2D_xsn28")

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://yi460kmmtmue"]
+
+[ext_resource type="Texture2D" uid="uid://c4spge0cc52vt" path="res://Sprites/obstacles/obstacle_resistor.png" id="1_yebxx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_db0v8"]
+size = Vector2(28, 10)
+
+[node name="Obstacle" type="StaticBody2D" unique_id=1538443822]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1656001958]
+position = Vector2(-3, 10.427984)
+scale = Vector2(1, 0.78600806)
+texture = ExtResource("1_yebxx")
+centered = false
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=260432541]
+visible = false
+position = Vector2(13, 5)
+shape = SubResource("RectangleShape2D_db0v8")

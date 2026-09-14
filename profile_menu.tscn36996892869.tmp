@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://cvkx66bf642r3"]
+
+[ext_resource type="Texture2D" uid="uid://bjj82r0q4t3eb" path="res://Sprites/sub_menu/icon_worm.png" id="1_au6fx"]
+[ext_resource type="Script" uid="uid://cfcp171wf58wm" path="res://profile_menu.gd" id="1_k0sbo"]
+[ext_resource type="Texture2D" uid="uid://di7d4krlf558d" path="res://Sprites/sub_menu/profile_id_card.png" id="2_5di1b"]
+[ext_resource type="Texture2D" uid="uid://dqpj0ji757th5" path="res://Sprites/sub_menu/icon_adware.png" id="2_dqyne"]
+[ext_resource type="Texture2D" uid="uid://cwjrnfb3tmako" path="res://Sprites/sub_menu/settings_panel.png" id="2_qxsvl"]
+[ext_resource type="Texture2D" uid="uid://ccyeo13vo8058" path="res://Sprites/sub_menu/icon_spyware.png" id="3_d0nxb"]
+[ext_resource type="Texture2D" uid="uid://bbe2hfe8b3s2q" path="res://Sprites/sub_menu/avatar.png" id="3_qxsvl"]
+[ext_resource type="Texture2D" uid="uid://btgxyiqoamx67" path="res://Sprites/sub_menu/xp_bar_container.png" id="4_04h6g"]
+[ext_resource type="Texture2D" uid="uid://dbk1qc4ufrbb7" path="res://Sprites/sub_menu/icon_trojan.png" id="4_ct4wq"]
+[ext_resource type="Texture2D" uid="uid://dktirchocjarw" path="res://Sprites/sub_menu/skill_panel.png" id="5_jqn04"]
+[ext_resource type="Texture2D" uid="uid://c2d635dcjs8en" path="res://Sprites/sub_menu/slider_track_filled.png" id="6_qxsvl"]
+[ext_resource type="Texture2D" uid="uid://bocmdtj5ih1t3" path="res://Sprites/sub_menu/badge_holder_empty.png" id="10_1wi4x"]
+[ext_resource type="Texture2D" uid="uid://cpdffxp0dnnnq" path="res://Sprites/Buttons/btn_x.png" id="11_efpqi"]
+[ext_resource type="Texture2D" uid="uid://dqsi5te17npp5" path="res://Sprites/Buttons/btn_x_pressed.png" id="12_oikp5"]
+[ext_resource type="FontFile" uid="uid://blo02h3xiw0qd" path="res://Sprites/PressStart2P.ttf" id="15_04h6g"]
+
+[node name="ProfileMenu" type="CanvasLayer" unique_id=1500293514]
+script = ExtResource("1_k0sbo")
+
+[node name="BG" type="ColorRect" parent="." unique_id=80705514]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7058824)
+
+[node name="Center" type="CenterContainer" parent="." unique_id=62619574]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -120.0
+offset_right = 160.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainPanel" type="NinePatchRect" parent="Center" unique_id=1579306006]
+layout_mode = 2
+texture = ExtResource("2_qxsvl")
+
+[node name="Split" type="HBoxContainer" parent="Center/MainPanel" unique_id=864835527]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -326.0
+offset_top = -112.0
+offset_right = 326.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Left" type="VBoxContainer" parent="Center/MainPanel/Split" unique_id=516349575]
+layout_mode = 2
+
+[node name="IDCard" type="TextureRect" parent="Center/MainPanel/Split/Left" unique_id=1597154903]
+layout_mode = 2
+texture = ExtResource("2_5di1b")
+
+[node name="Avatar" type="TextureRect" parent="Center/MainPanel/Split/Left/IDCard" unique_id=802029790]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 53.0
+offset_right = 84.0
+offset_bottom = 121.0
+texture = ExtResource("3_qxsvl")
+expand_mode = 5
+
+[node name="Name" type="Label" parent="Center/MainPanel/Split/Left/IDCard" unique_id=1612877691]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Level" type="Label" parent="Center/MainPanel/Split/Left/IDCard" unique_id=1823294593]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="XPBox" type="TextureRect" parent="Center/MainPanel/Split/Left/IDCard" unique_id=1126903105]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 64.0
+offset_right = 350.0
+offset_bottom = 104.0
+texture = ExtResource("4_04h6g")
+
+[node name="XPBar" type="TextureProgressBar" parent="Center/MainPanel/Split/Left/IDCard/XPBox" unique_id=567597807]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_top = 20
+stretch_margin_right = 1
+stretch_margin_bottom = 16
+texture_progress = ExtResource("6_qxsvl")
+
+[node name="Right" type="VBoxContainer" parent="Center/MainPanel/Split" unique_id=1452036416]
+layout_mode = 2
+
+[node name="Skills" type="TextureRect" parent="Center/MainPanel/Split/Right" unique_id=1772790558]
+layout_mode = 2
+texture = ExtResource("5_jqn04")
+
+[node name="Stats" type="VBoxContainer" parent="Center/MainPanel/Split/Right/Skills" unique_id=1270662925]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Worms" type="HBoxContainer" parent="Center/MainPanel/Split/Right/Skills/Stats" unique_id=2108141167]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Center/MainPanel/Split/Right/Skills/Stats/Worms" unique_id=1813005595]
+layout_mode = 2
+texture = ExtResource("1_au6fx")
+
+[node name="Count" type="Label" parent="Center/MainPanel/Split/Right/Skills/Stats/Worms" unique_id=1249928180]
+layout_mode = 2
+
+[node name="Adware" type="HBoxContainer" parent="Center/MainPanel/Split/Right/Skills/Stats" unique_id=1555276036]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Center/MainPanel/Split/Right/Skills/Stats/Adware" unique_id=1570804198]
+layout_mode = 2
+texture = ExtResource("2_dqyne")
+
+[node name="Count" type="Label" parent="Center/MainPanel/Split/Right/Skills/Stats/Adware" unique_id=571332150]
+layout_mode = 2
+
+[node name="Spyware" type="HBoxContainer" parent="Center/MainPanel/Split/Right/Skills/Stats" unique_id=302080275]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Center/MainPanel/Split/Right/Skills/Stats/Spyware" unique_id=897385002]
+layout_mode = 2
+texture = ExtResource("3_d0nxb")
+
+[node name="Count" type="Label" parent="Center/MainPanel/Split/Right/Skills/Stats/Spyware" unique_id=1264499855]
+layout_mode = 2
+
+[node name="Trojan" type="HBoxContainer" parent="Center/MainPanel/Split/Right/Skills/Stats" unique_id=1567554597]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Center/MainPanel/Split/Right/Skills/Stats/Trojan" unique_id=359343810]
+layout_mode = 2
+texture = ExtResource("4_ct4wq")
+
+[node name="Count" type="Label" parent="Center/MainPanel/Split/Right/Skills/Stats/Trojan" unique_id=1734713329]
+layout_mode = 2
+
+[node name="Badges" type="HBoxContainer" parent="Center/MainPanel/Split/Right" unique_id=1801537582]
+layout_mode = 2
+
+[node name="B1" type="TextureRect" parent="Center/MainPanel/Split/Right/Badges" unique_id=2109007472]
+custom_minimum_size = Vector2(-200, -200)
+layout_mode = 2
+texture = ExtResource("10_1wi4x")
+
+[node name="B2" type="TextureRect" parent="Center/MainPanel/Split/Right/Badges" unique_id=1350559635]
+layout_mode = 2
+texture = ExtResource("10_1wi4x")
+
+[node name="B3" type="TextureRect" parent="Center/MainPanel/Split/Right/Badges" unique_id=850759605]
+layout_mode = 2
+texture = ExtResource("10_1wi4x")
+
+[node name="CloseBtn" type="TextureButton" parent="." unique_id=1208105156]
+offset_left = 925.0
+offset_top = 142.0
+offset_right = 989.0
+offset_bottom = 206.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("11_efpqi")
+texture_pressed = ExtResource("12_oikp5")
+
+[node name="Label" type="Label" parent="." unique_id=987745091]
+offset_left = 203.0
+offset_top = 157.0
+offset_right = 315.0
+offset_bottom = 180.0
+theme_override_fonts/font = ExtResource("15_04h6g")
+text = "ID CARD"
+
+[connection signal="pressed" from="CloseBtn" to="." method="_on_close_btn_pressed"]
